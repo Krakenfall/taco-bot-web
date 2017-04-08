@@ -50,7 +50,7 @@ app.get('/status', function(req, res) {
 
 // Arbitrary redirect hand-holder :)
 app.get("/list", function(req, res) {
-	res.redirect('/list.html');
+	res.redirect('/index.html');
 });
 
 // Handle Error response

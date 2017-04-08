@@ -1,6 +1,6 @@
 FROM node:argon
-LABEL Description="This image runs a GroupMe command bot node server" \
-Vendor="Krakenfall" Version="0.3"
+LABEL Description="Provides frontend view for taco-bot-commands" \
+Vendor="Krakenfall" Version="1.0"
 
 RUN mkdir -p /bot/app
 WORKDIR /bot/app

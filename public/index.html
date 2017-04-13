@@ -104,7 +104,7 @@
                             <a href="https://goo.gl/forms/msCzUtjMX1aHFhuA3" class="btn btn-default btn-lg btn-responsive"><i class="fa fa-google" aria-hidden="true"></i><span class="network-name"> Suggestions</span></a>
                         </li>
                         <li>
-                            <a href="https://github.com/Krakenfall/taco-bot-commands" class="btn btn-default btn-lg btn-responsive"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
+                            <a href="https://github.com/Krakenfall" class="btn btn-default btn-lg btn-responsive"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
                         </li>
                     </ul>
                 </div>
@@ -138,7 +138,7 @@
                             <a href="#contact">Contact</a>
                         </li>-->
                     </ul>
-                    <p class="copyright text-muted small">Copyright &copy; Krakenfall 2016. It's just open-sourced.</p>
+                    <p class="copyright text-muted small">Copyright &copy; Krakenfall 2016. I'm not a web guy. I know this sucks.</p>
                 </div>
             </div>
         </div>
@@ -164,7 +164,7 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$.ajax({
-				'url': 'http://taco-bot.com:9003/commands',
+				'url': '/commands',
 				'type': 'GET',
                 'dataType': 'jsonp',
 				'success': function(data) {
@@ -198,13 +198,13 @@
                                 
 								return "<div class=\"row-fluid\">" + 
                                     "<div class=\"col-sm-4\" align=\"center\"><p>!" + name + "</p></div>" +
-                                    "<div class=\"col-sm-8\"><p class=\"text-left\">" + 
+                                    "<div class=\"col-sm-8\"><p class=\"text-center\">" + 
 									firstValue + moreText + expandLink + "</p></div>" +
                                     "</div><br>";
                             } else {
                                 return "<div class=\"row-fluid\">" + 
                                     "<div class=\"col-sm-4\" align=\"center\"><p>!" + name + "</p></div>" +
-                                    "<div class=\"col-sm-8\"><p class=\"text-left\">" + checkLink(val[0]) + "</p></div>" +
+                                    "<div class=\"col-sm-8\"><p class=\"text-center\">" + checkLink(val[0]) + "</p></div>" +
                                     "</div><br>";
                             }
 						};

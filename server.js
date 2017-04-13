@@ -28,7 +28,7 @@ app.use(bodyParser.json());
 
 // Handle root
 app.get('/', function(req, res) {
-	res.redirect(`http://${config.domain}/index.html`);
+	res.redirect(`/index.html`);
 });
 
 // Get commands from MongoDB://commands and return in JSON

@@ -4,8 +4,10 @@ var fs = Promise.promisifyAll(require('fs'));
 var express = require('express');
 var bodyParser = require('body-parser');
 
+// Local dependencies
 var configService = require('./services/configuration.js');
 var apputil = require("./util.js");
+var db = require('./db.js');
 
 // Define constants
 const STATIC_CONTENT_DIR = './public';
@@ -25,8 +27,20 @@ app.use(express.static(STATIC_CONTENT_DIR));
 app.use(bodyParser.json());
 
 // Handle root
-app.get('*', function(req, res) {
+app.get('/', function(req, res) {
 	res.redirect(`http://${config.domain}/index.html`);
+});
+
+// Get commands from MongoDB://commands and return in JSON
+app.get('/commands', function(req, res) {	
+	db.get().collection("commands").find().toArray(function(error, results) {
+		if (error) {
+			apputil.log(`Error retrieving commands: ${error}`);
+		} else {
+			res.setHeader('Content-Type', 'application/json');
+			res.jsonp(results);
+		}
+	});
 });
 
 // Return log, should this be an admin call?
@@ -59,6 +73,14 @@ app.use(function(err, req, res, next) {
 	res.status(500).send('Something broke!');
 });
 
-app.listen(config.port, function () {
-	apputil.log("Server listening on port " + config.port, null, true);
+db.connect(config.mongoConnectionString, function(err) {
+	if (err) {
+		apputil.log(`Unable to connect to mongo. Error:\r\n${err}`);
+		process.exit(1);
+	}
+	apputil.log("Opened db connection", null, true);
+
+	app.listen(config.port, function () {
+		apputil.log("Server listening on port " + config.port, null, true);
+	});
 });

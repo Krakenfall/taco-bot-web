@@ -80,7 +80,7 @@ db.connect(config.mongoConnectionString, function(err) {
 	}
 	apputil.log("Opened db connection", null, true);
 
-	app.listen(config.port, function () {
-		apputil.log("Server listening on port " + config.port, null, true);
+	app.listen(80, function () {
+		apputil.log("Server listening on port 80", null, true);
 	});
 });

@@ -1,0 +1,5 @@
+{
+  "domain": "__TargetDomain__",
+  "port": __TargetPort__,
+  "tacoBotCommandsUrl": "http://__TargetDomain___:9003/commands"
+}

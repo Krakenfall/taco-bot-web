@@ -21,7 +21,15 @@ gulp.task('default', function () {
 					'!**/typings/**',
 					'!typings', 
 					'!_package', 
-					'!gulpfile.js']
+					'!gulpfile.js',
+					'!config.transform.js',
+					'!config.json.enc',
+					'!config.*.json',
+					'!Dockerfile',
+					'!server.log',
+					'!.travis.yml',
+					'!.dockerignore',
+					'!.git']
 	
 	//add exclusion patterns for all dev dependencies
 	var packageJSON = JSON.parse(fs.readFileSync(path.join(__dirname, 'package.json'), 'utf8'));
